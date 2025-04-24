@@ -19,6 +19,8 @@ export function SearchBar({ query, setQuery, ...delegated }: SearchBarProps) {
       <Image
         src="/search.svg"
         alt="Search"
+        width={24}
+        height={24}
         className="absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 transform"
       />
     </div>
