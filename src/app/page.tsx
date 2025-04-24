@@ -59,7 +59,7 @@ export default function Home() {
               name: result.name.common,
               languages: Object.values(result.languages),
               currency:
-                Object.values(result.currencies)?.[0]?.name || "Unknown",
+                Object.values(result.currencies)?.[0]?.name ?? "Unknown",
               timezones: result.timezones,
               borders: result.borders ?? [],
             };
