@@ -6,7 +6,7 @@ interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export function SearchBar({ query, setQuery, ...delegated }: SearchBarProps) {
   return (
     <input
-      className="rounded-full bg-[#1E97C3] px-6 py-3 text-xl font-bold text-black placeholder-black"
+      className="rounded-full bg-[#1E97C3] px-6 py-3 text-xl font-bold text-black placeholder-black shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
       type="text"
       placeholder="Search..."
       value={query}

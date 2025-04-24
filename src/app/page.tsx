@@ -53,20 +53,17 @@ export default function Home() {
         <form onSubmit={handleSearch}>
           <SearchBar query={query} setQuery={setQuery} autoFocus />
         </form>
-        <div className="bg-teal-500">
-          {searchResults.map((result) => {
-            const data: ResultCardProps = {
-              name: result.name.common,
-              languages: Object.values(result.languages),
-              currency:
-                Object.values(result.currencies)?.[0]?.name || "Unknown",
-              timezones: result.timezones,
-              borders: result.borders || [],
-            };
+        {searchResults.map((result) => {
+          const data: ResultCardProps = {
+            name: result.name.common,
+            languages: Object.values(result.languages),
+            currency: Object.values(result.currencies)?.[0]?.name || "Unknown",
+            timezones: result.timezones,
+            borders: result.borders || [],
+          };
 
-            return <ResultCard data={data} key={result.name.common} />;
-          })}
-        </div>
+          return <ResultCard data={data} key={result.name.common} />;
+        })}
       </div>
       <div>
         <Image src="/globe.png" alt="Globe" width={360} height={427} />
