@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { SearchBar } from "./components/SearchBar";
 import { useEffect, useState } from "react";
+import { ResultCard, type ResultCardProps } from "./components/ResultCard";
 
 type CountryResult = {
   name: {
@@ -40,7 +42,10 @@ export default function Home() {
   }, [setSearchResults]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white text-black">
+    <main className="flex min-h-screen bg-white text-black">
+      <div>
+        <Image src="/globe.png" alt="Globe" width={360} height={427} />
+      </div>
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         <h1 className="bg-[#D9D9D9] px-34 py-4 text-4xl font-bold tracking-tight text-[#1F0AD9]">
           Countries Info Explorer
@@ -49,13 +54,22 @@ export default function Home() {
           <SearchBar query={query} setQuery={setQuery} autoFocus />
         </form>
         <div className="bg-teal-500">
-          {searchResults.map((result, i) => (
-            <div key={i}>
-              <h2>{result.name.common}</h2>
-              <p>{Object.values(result.languages).join(",")}</p>
-            </div>
-          ))}
+          {searchResults.map((result) => {
+            const data: ResultCardProps = {
+              name: result.name.common,
+              languages: Object.values(result.languages),
+              currency:
+                Object.values(result.currencies)?.[0]?.name || "Unknown",
+              timezones: result.timezones,
+              borders: result.borders || [],
+            };
+
+            return <ResultCard data={data} key={result.name.common} />;
+          })}
         </div>
+      </div>
+      <div>
+        <Image src="/globe.png" alt="Globe" width={360} height={427} />
       </div>
     </main>
   );
