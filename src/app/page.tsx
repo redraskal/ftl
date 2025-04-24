@@ -46,24 +46,27 @@ export default function Home() {
       <div>
         <Image src="/globe.png" alt="Globe" width={360} height={427} />
       </div>
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="bg-[#D9D9D9] px-34 py-4 text-4xl font-bold tracking-tight text-[#1F0AD9]">
+      <div className="container flex flex-col items-center gap-12 py-3">
+        <h1 className="w-full bg-[#D9D9D9] px-34 py-4 text-center text-4xl font-bold tracking-tight text-[#1F0AD9]">
           Countries Info Explorer
         </h1>
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch} className="w-full">
           <SearchBar query={query} setQuery={setQuery} autoFocus />
         </form>
-        {searchResults.map((result) => {
-          const data: ResultCardProps = {
-            name: result.name.common,
-            languages: Object.values(result.languages),
-            currency: Object.values(result.currencies)?.[0]?.name || "Unknown",
-            timezones: result.timezones,
-            borders: result.borders || [],
-          };
+        <div className="grid grid-cols-2 gap-2 gap-y-20 rounded-[20px] bg-[#D9D9D9] px-10 py-35">
+          {searchResults.map((result) => {
+            const data: ResultCardProps = {
+              name: result.name.common,
+              languages: Object.values(result.languages),
+              currency:
+                Object.values(result.currencies)?.[0]?.name || "Unknown",
+              timezones: result.timezones,
+              borders: result.borders || [],
+            };
 
-          return <ResultCard data={data} key={result.name.common} />;
-        })}
+            return <ResultCard data={data} key={result.name.common} />;
+          })}
+        </div>
       </div>
       <div>
         <Image src="/globe.png" alt="Globe" width={360} height={427} />
