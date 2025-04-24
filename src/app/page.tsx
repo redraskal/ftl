@@ -28,10 +28,10 @@ export default function Home() {
         <Image src="/globe.png" alt="Globe" width={360} height={427} />
       </div>
       <div className="container flex flex-col items-center gap-12 py-3">
-        <h1 className="w-full bg-[#D9D9D9] px-34 py-4 text-center text-4xl font-bold tracking-tight text-[#1F0AD9]">
+        <h1 className="w-3/4 bg-[#D9D9D9] py-4 text-center text-4xl font-bold tracking-tight text-[#1F0AD9]">
           Countries Info Explorer
         </h1>
-        <form onSubmit={handleSearch} className="w-full">
+        <form onSubmit={handleSearch} className="w-8/12">
           <SearchBar query={query} setQuery={setQuery} autoFocus />
         </form>
         <CountryResults countries={searchResults} />

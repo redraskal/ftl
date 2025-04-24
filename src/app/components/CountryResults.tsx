@@ -3,7 +3,7 @@ import { CountryCard, type CountryCardProps } from "./CountryCard";
 
 export function CountryResults({ countries }: { countries: CountryResult[] }) {
   return (
-    <div className="grid grid-cols-2 gap-2 gap-y-20 rounded-[20px] bg-[#D9D9D9] px-10 py-35">
+    <div className="grid gap-2 gap-y-20 rounded-[20px] bg-[#D9D9D9] px-10 py-35 sm:grid-cols-1 md:grid-cols-2">
       {countries.map((country) => {
         const data: CountryCardProps = {
           name: country.name.common,
