@@ -1,11 +1,17 @@
-"use client";
+interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  query: string;
+  setQuery: (query: string) => void;
+}
 
-import { useState } from "react";
-
-export function SearchBar() {
-    const [query, setQuery] = useState("");
- 
-    return (
-        <input type="text" placeholder="Search..." value={query} />
-    );
+export function SearchBar({ query, setQuery, ...delegated }: SearchBarProps) {
+  return (
+    <input
+      className="rounded-full bg-[#1E97C3] px-6 py-3 text-xl font-bold text-black placeholder-black"
+      type="text"
+      placeholder="Search..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      {...delegated}
+    />
+  );
 }
