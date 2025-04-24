@@ -61,7 +61,7 @@ export default function Home() {
               currency:
                 Object.values(result.currencies)?.[0]?.name || "Unknown",
               timezones: result.timezones,
-              borders: result.borders || [],
+              borders: result.borders ?? [],
             };
 
             return <ResultCard data={data} key={result.name.common} />;

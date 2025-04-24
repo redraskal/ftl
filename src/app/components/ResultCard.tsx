@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export interface ResultCardProps {
   name: string;
   languages: string[];
