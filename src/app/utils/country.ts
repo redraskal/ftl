@@ -17,7 +17,7 @@ export interface CountryResult {
 /**
  * Fetch country data from the REST Countries API, defaulting to Europe region if no query is provided.
  * @param query Country name
- * @returns
+ * @returns Promise<CountryResult[]>
  */
 export async function fetchCountryData(
   query: string,
