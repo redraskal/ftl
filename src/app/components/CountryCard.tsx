@@ -1,4 +1,4 @@
-export interface ResultCardProps {
+export interface CountryCardProps {
   name: string;
   languages: string[];
   currency: string;
@@ -6,7 +6,7 @@ export interface ResultCardProps {
   borders: string[];
 }
 
-export function ResultCard({ data }: { data: ResultCardProps }) {
+export function CountryCard({ data }: { data: CountryCardProps }) {
   const { name, languages, currency, timezones, borders } = data;
 
   return (
