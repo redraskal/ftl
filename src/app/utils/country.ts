@@ -2,6 +2,7 @@ export interface CountryResult {
   name: {
     common: string;
   };
+  flag: string;
   languages: Record<string, string>;
   currencies: Record<
     string,

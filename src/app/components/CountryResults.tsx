@@ -7,6 +7,7 @@ export function CountryResults({ countries }: { countries: CountryResult[] }) {
       {countries.map((country) => {
         const data: CountryCardProps = {
           name: country.name.common,
+          flag: country.flag,
           languages: Object.values(country.languages),
           currency: Object.values(country.currencies)?.[0]?.name ?? "Unknown",
           timezones: country.timezones,
